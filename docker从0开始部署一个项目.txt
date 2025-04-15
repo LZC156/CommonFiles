@@ -1,0 +1,38 @@
+1.创建一个基础镜像
+docker run -it --name myProject ubuntu bash
+
+2.安装git
+apt-get update慢解决方法
+https://blog.csdn.net/qq_36973540/article/details/125960846
+apt-get update
+apt-get install -y git
+
+3.git拉取远程代码
+进入对应目录
+git clone https://git.gridbear.cn/Bear/IAMServer.git
+
+4.git pull origin master
+切换分支
+git checkout dev-lzc20250409
+git pull
+
+5.安装 .net8
+apt-get install -y dotnet-sdk-8.0
+
+
+6.装ssh
+https://blog.csdn.net/weixin_74004489/article/details/131489645
+把当前容器打成镜像
+docker commit 75d45920d610 project:ssh
+
+7.启动容器
+docker run -it -p 5000:8080 -p 5001:22 --name project_ssh cb2a200f0b68 bash
+
+8.启动项目 启动ssh
+service ssh status
+service ssh restart
+dotnet build
+dotnet run
+
+
+dotnet run --launch-profile Bear.IAM-LZC
