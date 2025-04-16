@@ -34,5 +34,5 @@ service ssh restart
 dotnet build
 dotnet run
 
-
+指定配置文件启动
 dotnet run --launch-profile Bear.IAM-LZC

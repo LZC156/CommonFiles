@@ -4,7 +4,7 @@ docker compose -f F:\workEnvironment\dockerimage\dockerCompose\kafka\docker-comp
 
 ps ef | grep kafka
 
-docker exec -it 77179be55f6d /bin/bash
+docker exec -it bear-gbdocs /bin/bash
 
 docker logs -f bear-gbdocs
 
