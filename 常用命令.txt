@@ -3,3 +3,13 @@ File-0011 File-0052 文件
 
 添加cookie
 document.cookie='_bear_iam_token='
+
+
+docker compose -f livekit.yml up -d
+
+docker run --rm -it -v$PWD:/output livekit/livekit-server:latest
+
+docker run -d --name livekit-server \
+    -p 7880:7880 \
+    -p 5000:5000/udp \
+    livekit/livekit-server:latest
