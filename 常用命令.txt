@@ -13,3 +13,9 @@ docker run -d --name livekit-server \
     -p 7880:7880 \
     -p 5000:5000/udp \
     livekit/livekit-server:latest
+	
+	
+docker compose -f docker-compose.yml up -d
+
+
+livekit-server --config ./all-config-sample.yaml

@@ -4,13 +4,21 @@ docker compose -f F:\workEnvironment\dockerimage\dockerCompose\kafka\docker-comp
 
 ps ef | grep kafka
 
-docker exec -it bear-gbdocs /bin/bash
-
-docker logs -f bear-gbdocs
+docker exec -it gbdocs /bin/bash
 
 
-docker restart 8ff758540c80 
+docker exec -it kafka /bin/bash
 
+
+docker logs -f  gbdocs
+
+
+docker restart gbdocs
+
+docker stop bear-gbdocs 
+
+docker rm f66599e3030c
+docker rmi f66599e3030c
 
 03347809a7c1
 
@@ -30,7 +38,7 @@ docker run -it -p 5000:8080 -p 5001:22 --name iamserver_ssh a89c2fe8d9fe bash
 scp -r /path/to/local/file root@remote:/path/to/remote/directory/
 
 下载docker内的文件
-docker cp  bear-gbdocs:/app/data/maps  /tmp
+docker cp  gbdocs:/app/data/maps  /tmp
 
 cat -n 638790966991576303.dat  | grep “ererwew” -C 5
 
@@ -44,14 +52,16 @@ kafka-topics.sh --create --topic im-message-topic --bootstrap-server localhost:9
 kafka-topics.sh --create --topic file-permission-topic --bootstrap-server localhost:9092
 
 删除topic
-kafka-topics.sh --bootstrap-server localhost:9092 --delete --topic im-message-topic
+kafka-topics.sh --bootstrap-server localhost:9092 --delete --topic Tenant-0001-im-message-topic
+kafka-topics.sh --bootstrap-server localhost:9092 --delete --topic Tenant-0001-file-permission-topic
+
 
 kafka查看topic信息
 kafka-topics.sh --describe --topic im-message-topic --bootstrap-server localhost:9092
 
-kafka-consumer-groups.sh --bootstrap-server localhost:9092 --describe --group im-message-group
+kafka-consumer-groups.sh --bootstrap-server localhost:9092 --describe --group Tenant-0001-im-message-group
 
-kafka-consumer-groups.sh --bootstrap-server localhost:9092 --describe --group file-permission-group
+kafka-consumer-groups.sh --bootstrap-server localhost:9092 --describe --group Tenant-0001-cloud-group-group
 
 
 kafka-consumer-groups.sh --bootstrap-server localhost:9092 --list
