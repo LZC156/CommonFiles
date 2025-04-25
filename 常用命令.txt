@@ -1,21 +1,15 @@
-File-0024 文件夹
-File-0011 File-0052 文件
+1.查询服务状态
+ps ef | grep kafka
 
-添加cookie
-document.cookie='_bear_iam_token='
+2.内网互传
+scp -r /path/to/local/file root@remote:/path/to/remote/directory/
 
+3.文件搜索内容
+cat -n 638790966991576303.dat  | grep “ererwew” -C 5
+cat -n 638790980693397783.dat  | grep "word" -C 5
 
-docker compose -f livekit.yml up -d
-
-docker run --rm -it -v$PWD:/output livekit/livekit-server:latest
-
-docker run -d --name livekit-server \
-    -p 7880:7880 \
-    -p 5000:5000/udp \
-    livekit/livekit-server:latest
-	
-	
-docker compose -f docker-compose.yml up -d
-
-
+4.运行livekit socket服务
 livekit-server --config ./all-config-sample.yaml
+
+5.添加cookie
+document.cookie='_bear_iam_token='

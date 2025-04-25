@@ -1,0 +1,18 @@
+1.查询kafka topic
+kafka-topics.sh --list --bootstrap-server localhost:9092
+
+2.kafka创建topic
+kafka-topics.sh --create --topic im-message-topic --bootstrap-server localhost:9092
+kafka-topics.sh --create --topic file-permission-topic --bootstrap-server localhost:9092
+
+3.删除topic
+kafka-topics.sh --bootstrap-server localhost:9092 --delete --topic Tenant-0001-im-message-topic
+kafka-topics.sh --bootstrap-server localhost:9092 --delete --topic Tenant-0001-file-permission-topic
+
+4.kafka查看topic信息
+kafka-topics.sh --describe --topic im-message-topic --bootstrap-server localhost:9092
+
+4.kafka查询消费组
+kafka-consumer-groups.sh --bootstrap-server localhost:9092 --describe --group Tenant-0001-im-message-group
+kafka-consumer-groups.sh --bootstrap-server localhost:9092 --describe --group Tenant-0001-cloud-group-group
+kafka-consumer-groups.sh --bootstrap-server localhost:9092 --list
