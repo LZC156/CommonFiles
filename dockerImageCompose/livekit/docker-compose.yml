@@ -1,0 +1,16 @@
+services:
+  livekit:
+    image: livekit/livekit-server:v1.8.0
+    command: --config /etc/livekit.yaml
+    restart: unless-stopped
+    ports:
+      - "7880:7880"  # WebRTC 信令和管理 API
+      - "7881:7881"  # WebRTC 备用 TCP 通信
+      - "7882:7882/udp"  # WebRTC 主要 UDP 通信
+    network_mode: "host"
+    volumes:
+      - /etc/localtime:/etc/localtime
+      - ./livekit.yaml:/etc/livekit.yaml
+      - ./turn.crt:/etc/turn.crt
+      - ./turn.key:/etc/turn.key
+      - /etc/letsencrypt:/etc/letsencrypt
