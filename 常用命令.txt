@@ -13,3 +13,6 @@ livekit-server --config ./all-config-sample.yaml
 
 5.添加cookie
 document.cookie='_bear_iam_token='
+
+
+telnet 192.168.13.118 8080
