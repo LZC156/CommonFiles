@@ -12,7 +12,18 @@ cat -n 638790980693397783.dat  | grep "word" -C 5
 livekit-server --config ./all-config-sample.yaml
 
 5.添加cookie
-document.cookie='_bear_iam_token='
+document.cookie='token='
 
+cat file1.txt | grep "Waiting"
 
-telnet 192.168.13.118 8080
+| grep "Active"
+
+ksops:
+http://192.168.100.39/ksops
+wpsadmin/Wps@1234567
+系统后台：
+http://192.168.100.39/micsweb/sys/login
+wpsadmin/Wps@123456
+应用管理平台
+http://192.168.100.39/c/manage/#/login
+wpsadmin/Wps@123456

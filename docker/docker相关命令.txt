@@ -11,6 +11,7 @@ docker logs -f  gbdocs
 
 4.启动停止容器
 docker restart gbdocs
+docker restart nginx
 docker stop bear-gbdocs 
 
 5.删除命令
@@ -31,3 +32,13 @@ docker cp  gbdocs:/app/data/maps  /tmp
 
 9.docker安装到非c盘目录
 https://blog.csdn.net/m0_51290571/article/details/144635357
+
+if ($request_method = 'OPTIONS') {
+add_header 'Access-Control-Allow-Origin' '*';
+add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
+add_header 'Access-Control-Allow-Headers' 'DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,x-origin';
+add_header 'Access-Control-Max-Age' 1728000;
+add_header 'Content-Type' 'text/plain charset=UTF-8';
+add_header 'Content-Length' 0;
+return 204;
+}
