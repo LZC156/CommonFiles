@@ -1,11 +1,15 @@
 1.查询服务状态
-ps ef | grep kafka
+ps ef | grep bear-gbdocs
+ps ef | grep nginx
+ps ef | grep ai-agent-server
+ps ef | grep turn
+
 
 2.内网互传
 scp -r /path/to/local/file root@remote:/path/to/remote/directory/
 
 3.文件搜索内容
-cat -n 638790966991576303.dat  | grep “ererwew” -C 5
+cat -n info.log  | grep “.. >>>” -C 5
 cat -n 638790980693397783.dat  | grep "word" -C 5
 
 4.运行livekit socket服务
@@ -18,12 +22,8 @@ cat file1.txt | grep "Waiting"
 
 | grep "Active"
 
-ksops:
-http://192.168.100.39/ksops
-wpsadmin/Wps@1234567
-系统后台：
-http://192.168.100.39/micsweb/sys/login
-wpsadmin/Wps@123456
-应用管理平台
-http://192.168.100.39/c/manage/#/login
-wpsadmin/Wps@123456
+查找文件夹
+sudo find / -type d -name 'ai-agent-server'
+
+
+git rm --cached IAMServer/Properties/appSettings.lzc.json

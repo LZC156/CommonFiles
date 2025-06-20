@@ -14,5 +14,10 @@ kafka-topics.sh --describe --topic im-message-topic --bootstrap-server localhost
 
 4.kafka查询消费组
 kafka-consumer-groups.sh --bootstrap-server localhost:9092 --describe --group Tenant-0001-im-message-group
-kafka-consumer-groups.sh --bootstrap-server localhost:9092 --describe --group Tenant-0001-cloud-group-group
+
+kafka-consumer-groups.sh --bootstrap-server localhost:9092 --describe --group Tenant-0001-file-permission-group
+
+kafka-consumer-groups.sh --bootstrap-server localhost:9092 --describe --group Tenant-0001-Knowledge-File-Embedding-group
 kafka-consumer-groups.sh --bootstrap-server localhost:9092 --list
+
+Tenant-0001-Knowledge-File-Embedding-topic

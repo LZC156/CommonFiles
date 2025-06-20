@@ -1,18 +1,32 @@
 1.docker compose命令
-docker compose -f F:\workEnvironment\dockerimage\dockerCompose\kafka\docker-compose.yml up -d
+
+docker compose -f F:\githubSpace\CommonFiles\dockerImageCompose\kafka\docker-compose.yml up -d
+
 docker compose -f F:\workEnvironment\dockerimage\dockerCompose\kafka\docker-compose.yml down -v
 
+docker compose -f livekit.yml up -d
+docker compose -f docker-compose.yml up -d
+docker compose down -v
+
+docker run -d --name livekit -p 7880:7880 -p 7881:7881 -p 7882:7882/udp -v $PWD/livekit.yaml:/livekit.yaml livekit/livekit-server --config /livekit.yaml --node-ip=127.0.0.1
+
 2.进入容器命令
-docker exec -it gbdocs /bin/bash
-docker exec -it kafka /bin/bash
+docker exec -it livekit /bin/bash
+docker exec -it ai-agent-server /bin/sh
+docker exec -it kafka /bin/sh
+docker exec -it e3b46db9018d /bin/sh
 
 3.查看对应容器日志
+docker logs -f  docs-server
 docker logs -f  gbdocs
 
+docker logs -f ai-agent-server --tail=0
+docker logs -f  ai-agent-server
 4.启动停止容器
+docker restart docs-server
+
 docker restart gbdocs
-docker restart nginx
-docker stop bear-gbdocs 
+docker stop docs-server
 
 5.删除命令
 docker rm f66599e3030c
@@ -33,12 +47,12 @@ docker cp  gbdocs:/app/data/maps  /tmp
 9.docker安装到非c盘目录
 https://blog.csdn.net/m0_51290571/article/details/144635357
 
-if ($request_method = 'OPTIONS') {
-add_header 'Access-Control-Allow-Origin' '*';
-add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS';
-add_header 'Access-Control-Allow-Headers' 'DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,x-origin';
-add_header 'Access-Control-Max-Age' 1728000;
-add_header 'Content-Type' 'text/plain charset=UTF-8';
-add_header 'Content-Length' 0;
-return 204;
-}
+start /w "" "Docker Desktop Installer.exe" install -accept-license --installation-dir="F:\workEnvironment\Docker" --wsl-default-data-root="F:\workEnvironment\Docker\data" --windows-containers-default-data-root="F:\\workEnvironment\\Docker"
+start /w "" "Docker Desktop Installer.exe" install -accept-license --backend=wsl-2 --installation-dir="F:\workEnvironment\Docker" --wsl-default-data-root="D:\program\Docker\data" --windows-containers-default-data-root="D:\\program\\Docker"
+
+
+                        
+原文链接：https://blog.csdn.net/m0_51478477/article/details/146282672
+docker logs  ai-agent-server > /tmp/agent.log
+
+GET http://120.71.60.87:9200/cat/shards?pretty
